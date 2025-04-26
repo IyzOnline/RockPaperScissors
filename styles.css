@@ -32,6 +32,12 @@ body{
     border-radius: 15px;
     box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.589);
 }
+
+.signContainer button:hover{
+    background: hsla(0, 0%, 67%, 0.473);
+    cursor: pointer;
+}
+
 .signContainer img{
     max-width: 100px;
     max-height: 100px;
