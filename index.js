@@ -5,21 +5,25 @@ const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const endResult = document.querySelector(".endResult");
 const score = document.querySelector(".score");
-const attempts = document.querySelector(".attempts");
+const rounds = document.querySelector(".rounds");
 
 let currentScore = 0;
 let currentOption = 0;
-let currentAttempts = 0;
+let currentRounds = 0;
+let computerScore = 0;
 
-attempts.style.display = "none";
+rounds.style.display = "none";
 score.style.display = "none";
 
 
 score.addEventListener("click", () => {
     currentScore = 0;
     endResult.textContent = "You have reset the game. Let's try again!";
-    score.textContent = "Score: 0";
-    attempts.textContent = "Attempts: 0";
+    rounds.style.display = "none";
+    score.style.display = "none";
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
 });
 
 
@@ -31,10 +35,7 @@ rock.addEventListener("click", () => {
 
 paper.addEventListener("click", () => {
     userAnswer = 2; 
-    Checking(userAnswer);    if(currentAttempts === 1){
-        score.display = "block";
-        attempts.display = "inline-block";
-    }
+    Checking(userAnswer);    
 });
 
 
@@ -44,9 +45,8 @@ scissors.addEventListener("click", () => {
 });
 
 function Checking(userAnswer){
-    attempts.style.display = "block";
+    rounds.style.display = "block";
     score.style.display = "block";
-    currentAttempts++;
     let computerAnswer = Math.floor((Math.random() * 3) + 1);
     if(userAnswer === computerAnswer){
         endResult.textContent = "It's a tie!";
@@ -54,6 +54,7 @@ function Checking(userAnswer){
     else if(userAnswer === 1){
         if(computerAnswer === 2){
             endResult.textContent = "Computer chose PAPER, Computer wins!";
+            computerScore++;
         }
         else{
             endResult.textContent = "Computer chose SCISSORS, You win!";
@@ -62,22 +63,46 @@ function Checking(userAnswer){
     }
     else if(userAnswer === 2){
         if(computerAnswer === 1){
-            endResult.textContent = "Computer chose Rock, User wins!";
+            endResult.textContent = "Computer chose Rock, You win!";
             currentScore++;
         }
         else{
             endResult.textContent = "Computer chose Scissors, Computer wins!";
+            computerScore++;
         }
     }
     else{
         if(computerAnswer === 1){
             endResult.textContent = "Computer chose Rock, Computer wins!";
+            computerScore++;
         }
         else{
-            endResult.textContent = "Computer chose Paper, User wins!";
+            endResult.textContent = "Computer chose Paper, You win!";
             currentScore++;
         }
     }
-    score.textContent = `Score: ${currentScore}`;
-    attempts.textContent = `Attempts: ${currentAttempts}`;
+    ++currentRounds;
+    rounds.textContent = `Round ${currentRounds}!`;
+    score.textContent = `Score: ${currentScore} | Click here to reset the game.`;
+    if(currentRounds === 5){
+        DisplayWinner();
+    }
+}
+
+function DisplayWinner(){
+    if(currentScore < computerScore){
+        endResult.textContent = "Congratulations! You have won!";
+    }
+    else if(currentScore === computerScore){
+        endResult.textContent = "This round ends with a TIE!";
+    }
+    else{
+        endResult.textContent = "Computer has won this round!";
+    }
+    currentScore = 0;
+    currentOption = 0;
+    currentRounds = 0;
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
 }
