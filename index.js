@@ -1,3 +1,5 @@
+//project seemed too easy so I made my own version without looking at the hints
+
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
