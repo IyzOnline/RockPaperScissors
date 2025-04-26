@@ -17,7 +17,6 @@ score.style.display = "none";
 
 
 score.addEventListener("click", () => {
-    currentScore = 0;
     endResult.textContent = "You have reset the game. Let's try again!";
     rounds.style.display = "none";
     score.style.display = "none";
@@ -99,6 +98,7 @@ function DisplayWinner(){
     else{
         endResult.textContent = "Computer has won this round!";
     }
+    computerScore = 0;
     currentScore = 0;
     currentOption = 0;
     currentRounds = 0;
