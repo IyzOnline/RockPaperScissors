@@ -1,4 +1,4 @@
-//project seemed too easy so I made my own version without looking at the hints
+//project seemed too easy so I made my own version without looking at the hints or the objectives XDD
 
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
