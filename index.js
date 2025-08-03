@@ -3,9 +3,12 @@
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+
 const endResult = document.querySelector(".endResult");
 const score = document.querySelector(".score");
 const rounds = document.querySelector(".rounds");
+
+const signContainer = document.querySelector(".signContainer");
 
 let currentScore = 0;
 let currentRounds = 0;
@@ -24,21 +27,22 @@ score.addEventListener("click", () => {
     scissors.disabled = false;
 });
 
+signContainer.addEventListener("click", (event) => {
+    sign = event.target.parentElement.className;
+    switch(sign){
+        case 'rock':
+        userAnswer = 1;
+        break;
+        case 'paper':
+        userAnswer = 2;
+        break;
+        case 'scissors':
+        userAnswer = 3;
+        break;
+        default:
+        return;
+    };
 
-rock.addEventListener("click", () => {
-    userAnswer = 1;
-    Checking(userAnswer);
-});
-
-
-paper.addEventListener("click", () => {
-    userAnswer = 2; 
-    Checking(userAnswer);    
-});
-
-
-scissors.addEventListener("click", () => {
-    userAnswer = 3;
     Checking(userAnswer);
 });
 
