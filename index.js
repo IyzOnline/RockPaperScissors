@@ -8,7 +8,6 @@ const score = document.querySelector(".score");
 const rounds = document.querySelector(".rounds");
 
 let currentScore = 0;
-let currentOption = 0;
 let currentRounds = 0;
 let computerScore = 0;
 
@@ -100,7 +99,6 @@ function DisplayWinner(){
     }
     computerScore = 0;
     currentScore = 0;
-    currentOption = 0;
     currentRounds = 0;
     rock.disabled = true;
     paper.disabled = true;
