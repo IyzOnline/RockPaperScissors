@@ -83,24 +83,23 @@ function Checking(userAnswer){
             currentScore++;
         }
     }
-    ++currentRounds;
+
+    currentRounds++;
     rounds.textContent = `Round ${currentRounds}!`;
     score.textContent = `Score: ${currentScore} | Click here to reset the game.`;
-    if(currentRounds === 5){
+    
+    if(currentScore === 5 || computerScore === 5){
         DisplayWinner();
     }
 }
 
 function DisplayWinner(){
-    if(currentScore < computerScore){
+    if (currentScore < computerScore) {
         endResult.textContent = "Congratulations! You have won!";
-    }
-    else if(currentScore === computerScore){
-        endResult.textContent = "This round ends with a TIE!";
-    }
-    else{
+    } else {
         endResult.textContent = "Computer has won this round!";
     }
+    
     computerScore = 0;
     currentScore = 0;
     currentRounds = 0;
