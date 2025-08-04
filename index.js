@@ -52,35 +52,35 @@ function Checking(userAnswer){
     let computerAnswer = Math.floor((Math.random() * 3) + 1);
     if(userAnswer === computerAnswer){
         endResult.textContent = "It's a tie!";
-    }
-    else if(userAnswer === 1){
-        if(computerAnswer === 2){
-            endResult.textContent = "Computer chose PAPER, Computer wins!";
-            computerScore++;
-        }
-        else{
-            endResult.textContent = "Computer chose SCISSORS, You win!";
-            currentScore++;
-        }
-    }
-    else if(userAnswer === 2){
-        if(computerAnswer === 1){
-            endResult.textContent = "Computer chose Rock, You win!";
-            currentScore++;
-        }
-        else{
-            endResult.textContent = "Computer chose Scissors, Computer wins!";
-            computerScore++;
-        }
-    }
-    else{
-        if(computerAnswer === 1){
-            endResult.textContent = "Computer chose Rock, Computer wins!";
-            computerScore++;
-        }
-        else{
-            endResult.textContent = "Computer chose Paper, You win!";
-            currentScore++;
+    } else {
+        switch(userAnswer){
+            case 1:
+            if (computerAnswer === 2) {
+                endResult.textContent = "Computer chose PAPER, Computer wins!";
+                computerScore++;
+            } else {
+                endResult.textContent = "Computer chose SCISSORS, You win!";
+                currentScore++;
+            }
+            break;
+            case 2:
+            if (computerAnswer === 1) {
+                endResult.textContent = "Computer chose Rock, You win!";
+                currentScore++;
+            } else {
+                endResult.textContent = "Computer chose Scissors, Computer wins!";
+                computerScore++;
+            }
+            break;
+            case 3:
+            if (computerAnswer === 1){
+                endResult.textContent = "Computer chose Rock, Computer wins!";
+                computerScore++;
+            } else {
+                endResult.textContent = "Computer chose Paper, You win!";
+                currentScore++;
+            }
+            break;
         }
     }
 
