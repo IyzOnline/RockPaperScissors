@@ -1,13 +1,8 @@
 //project seemed too easy so I made my own version without looking at the hints or the objectives XDD
 
-const rock = document.querySelector(".rock");
-const paper = document.querySelector(".paper");
-const scissors = document.querySelector(".scissors");
-
 const endResult = document.querySelector(".endResult");
 const score = document.querySelector(".score");
 const rounds = document.querySelector(".rounds");
-
 const signContainer = document.querySelector(".signContainer");
 
 let currentScore = 0;
@@ -103,7 +98,6 @@ function DisplayWinner(){
     computerScore = 0;
     currentScore = 0;
     currentRounds = 0;
-    rock.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
+    
+    Array.from(signContainer.children).forEach((element) => element.disabled = true);
 }
