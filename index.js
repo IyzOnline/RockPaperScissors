@@ -73,7 +73,7 @@ function Checking(userAnswer){
             }
             break;
             case 3:
-            if (computerAnswer === 1){
+            if (computerAnswer === 1) {
                 endResult.textContent = "Computer chose Rock, Computer wins!";
                 computerScore++;
             } else {
@@ -94,7 +94,7 @@ function Checking(userAnswer){
 }
 
 function DisplayWinner(){
-    if (currentScore < computerScore) {
+    if (currentScore > computerScore) {
         endResult.textContent = "Congratulations! You have won!";
     } else {
         endResult.textContent = "Computer has won this round!";
